@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/table-coloured.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Ball/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Table/Table.gd" type="Script" id=4]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[node name="Table" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 524, 300 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bumpers" type="Node2D" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="Bumpers"]
+position = Vector2( 64.2568, 292.712 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Left"]
+polygon = PoolVector2Array( 14.7432, -183.462, -15.0068, -212.962, -15.0068, 229.288, 14.9932, 200.288 )
+
+[node name="Right" type="StaticBody2D" parent="Bumpers"]
+position = Vector2( 983.818, 301.212 )
+physics_material_override = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Right"]
+position = Vector2( 893.873, 40.363 )
+polygon = PoolVector2Array( -877.849, -259.336, -907.579, -230.498, -908.174, 148.859, -878.147, 177.103 )
+
+[node name="TopLeft" type="StaticBody2D" parent="Bumpers"]
+position = Vector2( 300.823, 63.2369 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/TopLeft"]
+position = Vector2( 893.873, 40.363 )
+polygon = PoolVector2Array( -693.451, -54.6336, -1114.71, -54.832, -1083.75, -24.6714, -689.681, -24.473 )
+
+[node name="BottomLeft" type="StaticBody2D" parent="Bumpers"]
+position = Vector2( 302.691, 543.107 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/BottomLeft"]
+position = Vector2( 893.873, 40.363 )
+polygon = PoolVector2Array( -1087.6, -61.0736, -1120.19, -27.7363, -702.159, -28.111, -697.719, -61.0686 )
+
+[node name="TopRight" type="StaticBody2D" parent="Bumpers"]
+position = Vector2( 732.167, 64.2417 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/TopRight"]
+position = Vector2( 893.873, 40.363 )
+polygon = PoolVector2Array( -1072.41, -55.44, -1076.97, -26.073, -685.481, -25.8746, -656.511, -55.8368 )
+
+[node name="BottomRight" type="StaticBody2D" parent="Bumpers"]
+position = Vector2( 775.97, 537.328 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/BottomRight"]
+position = Vector2( 893.873, 40.363 )
+polygon = PoolVector2Array( -1126.38, -55.5698, -1121.89, -25.5439, -702.389, -26.1425, -730.941, -55.6385 )
+
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 255.445, 302.539 )
